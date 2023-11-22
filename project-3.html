@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Case Study of GazeTracker</title>
+    <meta name="description" content="Case study page of Project" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/png/profile.png"
+              alt="Ram Maheshwari Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Yun Le</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Gaze Tracker</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            Gaze Tracker is my MSc project. It is a machine learning-based gaze estimation model
+            built through mobile camera. The model includes a feature extraction face alignment
+            model and a MLP network. By processing the image of human’s faces taken by front facing
+            camera of mobile phone, the model is able to estimate their gaze points in mobile 
+            phone screen.
+          </p>
+        </div>
+        <div class="project-cs-hero__cta">
+          <a href="https://github.com/LydiaHappy/GazeTracker/tree/main" class="btn btn--bg" target="_blank">Live Link</a>
+        </div>
+      </div>
+    </section>
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Project Overview</h3>
+              <p class="project-details__desc-para">
+                In this project, a gaze tracking model is built through a mobile device camera. Since the
+                size of the training set is 136 GB and the training time and computational power are quite
+                limited, this work first considers two face alignment models, from which the better one is
+                chosen to generate features for each image. this step compresses the size of the training
+                data set to 2 GB. subsequently, several MLP models are built to train the predicted gaze
+                points. By adding and deleting features and adding mathematical analytic solutions to
+                the input, the accuracy of the model was achieved below 3 cm. Comparing the accuracy
+                between different MLP models, this project also identifies a subset of features that are more
+                influential for training gaze tracking models in comparison.
+              </p>
+              <p class="project-details__desc-para">
+                Finally, this project analyzes the
+                possible causes of errors in this model and concludes two following points: first, the dataset
+                is collected by the mobile device cameras, and thus the lighting and face dressing are more
+                diverse than other datasets, which may lead to the failure of the pre-trained model to extract
+                features. Second, some mathematical analytical solutions used in the training of the MLP
+                network are approximate and have errors.
+              </p>
+            </div>
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Experiment process</h3>
+              <p class="project-details__desc-para">
+                The algorithm involves two parts:
+              </p>
+              <p class="project-details__desc-para">
+                1. Extracting features from raw frames using a pre-trained model.
+              </p>
+              <p class="project-details__desc-para">
+                2. Train a multilayer perceptron (MLP) network to estimate gaze location by the generated features.
+              </p>
+              <img
+                src="./assets/png/experiment.png"
+                alt="Project Image"
+                class="project-details__showcase-img"
+              />
+            </div>
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Dataset pre-processing</h3>
+              <p class="project-details__desc-para">
+                The dataset used in this experiment is from a previous work <em>Eye tracking for everyone</em> 
+                posted in 2016. It contains 1479 zipped file and each file is named by the unique number 
+                of participants. Every zipped file contains a folder of 98 frames and their corresponding
+                json description file. Here is the detailed structure and descriptions of each file.
+              </p>
+              <img
+                src="./assets/png/dataset.png"
+                alt="Project Image"
+                class="project-details__showcase-img"
+              />
+              <p class="project-details__desc-para">
+                The first step of dataset processing is the unit conversion. The unit 
+                of length taken from Apple mobile devices is point, which is the 
+                absolute length and does not vary with the pixel density of the screen. 
+                For example, for a conventional screen, Apple states that 1 point is 
+                equal to 1 pixel, and for a Retina screen 1 point is equal to 2 pixel. 
+                All units of length are converted to centimetres for calculation.
+              </p>
+              <p class="project-details__desc-para">
+                The second step is to convert the data gathered from different devices 
+                into the same plain. A prediction space is defined and the camera is 
+                set as (0,0) in Cartesian coordinates and the locations of dots are 
+                computed in centimeters. The orientation of mobile devices are also 
+                considered.
+              </p>
+            </div>
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Feature extraction</h3>
+              <p class="project-details__desc-para">
+                The size of dataset is around 136 Gigabyte, by which it will take several 
+                months to train a deep learning model using a normal GPU. Thus the dataset 
+                need to be processed and compressed before it is used to train the model. 
+                The main reason is that both computational devices and time are limited 
+                in this work. It is impossible and ineffective to train the model with the 
+                full images. The more elegant way to achieve it is to train the model with 
+                featured map of each frame. Therefore, this work requires features to be 
+                extracted from the complete picture first. 
+              </p>
+              <p class="project-details__desc-para">
+                OpenFace 2.0 is implemented to finish this task. 68 face landmarks and 56 eye landmarks are extracted 
+                from the original pictures.
+              </p>
+              <img
+                src="./assets/png/facemarks.png"
+                alt="Project Image"
+                class="project-details__showcase-img"
+              />
+              <img
+                src="./assets/png/eyemarks.png"
+                alt="Project Image"
+                class="project-details__showcase-img"
+              />
+            </div>
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Gaze angle calculation</h3>
+              <p class="project-details__desc-para">
+                To compute the gaze angle, it is assumed that the eyeball to be a 
+                sphere. A ray is drawn from the camera origin through the center of 
+                the pupil in the image plane, and the intersection of this ray and 
+                the eye-ball sphere is calculated. The point is approximate to the 
+                pupil location in 3D camera coordinates.
+              </p>
+              <img
+                src="./assets/png/gazetracker.png"
+                alt="Project Image"
+                class="project-details__showcase-img"
+              />
+            </div>
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">MLP network</h3>
+              <p class="project-details__desc-para">
+                Several MLP networks is built by selecting different 
+                input features. In best situation, the error can ne reduced to approximately 3 cm.
+              </p>
+              <p class="project-details__desc-para">
+                By comparing the error of modal trained by different features, the following 
+                features are proved to be irrelevant in gaze estimation: head pose, 
+                facial expression (Facial action unit recognition), rigid face shape 
+                parameters and face landmarks. The following features are proved to be 
+                strongly relevant: The height and width of mobile screen and the pupil 
+                location.
+              </p>
+              <p class="project-details__desc-para">
+                Another informative finding is that adding a suitable mathematical 
+                analytical solution can greatly improve the efficiency of the model. 
+                In many cases, using a mathematical analytic solution instead of a set 
+                of eigenvalues not only improves accuracy, but also reduces the size 
+                of the input matrix, making the training process much faster.
+              </p>
+              <p class="project-details__desc-para">
+                Two mathematical analytic solution is added in the experiment:
+              </p>
+              <p class="project-details__desc-para">
+                1. using computed pupil location and gaze angle to replace 68 face landmarks and 56 eye
+                landmarks.
+              </p>
+              <p class="project-details__desc-para">
+                2. adding the intersection of gaze ray and screen plane into features.
+              </p>
+              <p class="project-details__desc-para">
+                Both of these mathematical analytical solutions significantly improve the accuracy of the
+                model.
+              </p>
+            </div>
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">How to run this work</h3>
+              <p class="project-details__desc-para">
+                The initial dataset is 136GB and too large to be put on Github. It can be downloaded from
+                the official website of GazeCapture. (https://gazecapture.csail.mit.edu/).
+                To run the model, execute the following steps in order:
+              </p>
+              <p class="project-details__desc-para">
+                <b>Step 1: </b>download nn.ipynb, dataset_processing.py and dataset.csv from github repository.
+              </p>
+              <p class="project-details__desc-para">
+                <b>Step 2: </b>Make sure all three files are in the same path, don’t change the name of the file,
+and execute data_prosessing.py
+              </p>
+              <p class="project-details__desc-para">
+                <b>Step 3: </b>Run jupyter notebook, execute nn.ipynb one paragraph by paragraph.
+              </p>
+            </div>
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools Used</h3>
+              <div class="skills">
+                <div class="skills__skill">Tensorflow</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">Deep Learning</div>
+                <div class="skills__skill">MLP</div>
+                <div class="skills__skill">OpenFace 2.0</div>
+                <div class="skills__skill">Face Recognition</div>
+              </div>
+            </div>
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">See Live</h3>
+              <a
+                href="https://github.com/LydiaHappy/GazeTracker/tree/main"
+                class="btn btn--med btn--theme project-details__links-btn"
+                target="_blank"
+                >Live Link</a
+              >
+              <a
+                href="https://github.com/LydiaHappy/GazeTracker/tree/main"
+                class="btn btn--med btn--theme-inv project-details__links-btn"
+                target="_blank"
+                >Code Link</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/yun-le-4641b6223/">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/linkedin-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/LydiaHappy">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/github-ico.png"
+                  alt="icon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Yun Le</h4>
+            <p class="main-footer__short-desc">
+              Email cloudlx0@gmail.com if you have anything to talk with me!
+            </p>
+          </div>
+        </div>
+
+        <div class="main-footer__lower">
+          &copy; Copyright 2021. Made by
+          <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com"
+            >Ram Maheshwari</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
